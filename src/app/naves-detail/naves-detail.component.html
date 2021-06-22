@@ -1,1 +1,46 @@
-<p>naves-detail works!</p>
+<app-header></app-header>
+
+
+<div class="naves-grid">
+
+    <div  class="box" 
+     > 
+
+        <h3>{{ starship.name }}</h3>
+
+        <p>
+            Modelo: {{ starship.model }}
+        </p>
+
+        <p>
+            Clase: {{ starship.starship_class }}
+        </p>
+
+        <p>
+			Anchura: {{ starship.length }}
+        </p>
+
+        <p>
+            Velocidad planetaria: {{ starship.max_atmosphering_speed }}
+        </p>
+
+		<p>
+			Hipervelocidaf: {{ starship.hyperdrive_rating }}
+	   </p>
+
+		<p>
+			Pasajeros: {{ starship.passengers }}
+	   </p>
+
+	   <p>
+			Tripulación: {{ starship.crew }}
+  		</p>
+
+		<p>
+			Capacidad de carga: {{ starship.cargo_capacity }}
+		</p>
+
+
+    </div>
+
+</div>

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavesService } from '../naves.service';
+
+
+
 
 @Component({
   selector: 'app-naves-list',
@@ -8,11 +12,33 @@ import { Router } from '@angular/router';
 })
 export class NavesListComponent implements OnInit {
 
-  constructor(
-    private router:Router
-  ) { }
+ starships:any;
+ 
 
-  ngOnInit(): void {
+  constructor(
+    private router:Router,
+    private naveService:NavesService,
+  
+  ) { 
+    
   }
+
+  ngOnInit():void{
+    this.naveService.getData().subscribe(
+      response =>{
+        let res:any;
+        res = response;//Recolectar la respuesta de la api en la variable res
+        this.starships = res.results;// Accede a la array results que esta dentro de la res y la gurda en starships
+       
+        this.naveService.naves = res.results;//guardo los datos de la array de este componente al servicio
+
+      },
+      error =>{
+        console.log(error);
+      }
+      );
+    }
+
+  
 
 }

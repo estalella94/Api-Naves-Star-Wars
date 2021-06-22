@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute  } from '@angular/router';
+import { NavesService } from '../naves.service';
 
 @Component({
   selector: 'app-naves-detail',
@@ -7,10 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./naves-detail.component.scss']
 })
 export class NavesDetailComponent implements OnInit {
+  
+  starship:any;
 
-  constructor(private router:Router) { }
+  constructor(  
+    private router:Router,
+    private route: ActivatedRoute,
+    private naveService:NavesService,)
+    { }
 
   ngOnInit(): void {
+    this.getStarship()
+  }
+
+  getStarship(){
+    let name = String(this.route.snapshot.paramMap.get('id'));
+   
+    this.starship = this.naveService.getStarshipByName(name);
+    console.log(this.starship);
   }
 
 }

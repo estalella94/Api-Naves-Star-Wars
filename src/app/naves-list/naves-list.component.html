@@ -1,1 +1,55 @@
-<p>naves-list works!</p>
+
+<app-header></app-header>
+
+
+
+
+
+<div *ngIf = "starships" class="naves-grid">
+
+    <div  class="box" *ngFor= "let s of starships" > 
+
+        <h3>{{ s.name }}</h3>
+
+        <p>
+            Modelo: {{ s.model }}
+        </p>
+
+        <p>
+            Clase: {{ s.starship_class }}
+        </p>
+
+        <p>
+			Anchura: {{ s.length }}
+        </p>
+
+        <p>
+            Velocidad planetaria: {{ s.max_atmosphering_speed }}
+        </p>
+
+		<p>
+			Hipervelocidaf: {{ s.hyperdrive_rating }}
+	   </p>
+
+		<p>
+			Pasajeros: {{ s.passengers }}
+	   </p>
+
+	   <p>
+			Tripulación: {{ s.crew }}
+  		</p>
+
+		<p>
+			Capacidad de carga: {{ s.cargo_capacity }}
+		</p>
+
+        <button class="btn btn-primary " routerLink="/naves-detail/{{s.name}}">DETALLES</button>
+
+    </div>
+
+</div>
+
+  
+  
+
+    
